@@ -1,5 +1,8 @@
 Revision history for App-ZofCMS-Plugin-PreferentialOrder
 
+0.0102  December 22, 2010
+        Removed broken error check
+
 0.0101  December 22, 2010
         First version, released on an unsuspecting world.
 

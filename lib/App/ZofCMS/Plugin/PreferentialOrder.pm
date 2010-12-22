@@ -6,7 +6,7 @@ use strict;
 use base 'App::ZofCMS::Plugin::Base';
 use DBI;
 use HTML::Template;
-our $VERSION = '0.0101';
+our $VERSION = '0.0102';
 
 sub _key { 'plug_preferential_order' }
 sub _defaults {
@@ -38,9 +38,6 @@ sub _do {
     return
         unless $conf->{items}
             and $conf->{order_login};
-
-    die 'Number of items in `items` argument must be even'
-        unless @{ $conf->{items} } % 2 == 0;
 
     $self->{CONFIG} = $config;
     $self->{CONF}   = $conf;
