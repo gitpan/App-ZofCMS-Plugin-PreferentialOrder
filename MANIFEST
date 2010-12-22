@@ -1,0 +1,12 @@
+Build.PL
+Changes
+MANIFEST
+README
+examples/index.tmpl
+lib/App/ZofCMS/Plugin/PreferentialOrder.pm
+t/00-load.t
+t/01-plugin.t
+t/pod-coverage.t
+t/pod.t
+Makefile.PL
+META.yml

@@ -1,0 +1,49 @@
+{
+    body => \'index.tmpl',
+    title => 'Test',
+
+    d => {
+        user => {
+            login => 'admin',
+            role => 'foo ,  bar ,baz'
+        },
+    },
+
+    t => {
+        foo => time(),
+        baz => ':)',
+    },
+
+    plugins => [
+        { PreferentialOrder => 2000 },
+    ], 
+
+    plug_preferential_order => {
+        items => [ # four value type variations shown here
+            forum3  => '<a href="#">Forum3</a>',
+            forum4  => [ 'Last forum ":)"',   \'forum-template.tmpl', ],
+            forum   => [ 'First forum ":)"',  '<a href="#">Forum</a>',  ],
+            forum2  => [
+                'Second forum ":)"',
+                sub {
+                    my ( $t, $q, $config ) = @_;
+                    return '$value_for_the_second_element_in_the_arrayref';
+                },
+            ],
+        ],        dsn           => "DBI:mysql:database=test;host=localhost",
+        user          => '',
+        pass          => undef,
+        opt           => { RaiseError => 1, AutoCommit => 1 },
+        users_table   => 'users',
+        order_col     => 'plug_pref_order',
+        login_col     => 'login',
+        order_login   => sub { $_[0]->{d}{user}{login} },
+        separator      => ',',
+        has_disabled   => 1,
+        enabled_label  => q|<p class="ppof_label">Enabled items</p>|,
+        disabled_label => q|<p class="ppof_label">Disabled items</p>|,
+        submit_button  => q|<input type="submit" class="input_submit"|
+                            . q| value="Save">|,
+    },
+
+};

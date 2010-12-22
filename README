@@ -1,0 +1,53 @@
+App-ZofCMS-Plugin-PreferentialOrder
+
+The module is a plugin for App::ZofCMS that provides means to have a sortable 
+list of custom HTML snippets. The order can be defined by each individual 
+user to suit their needs. The order is defined using a form provided by the 
+plugin, the actual sorting is done by MooTools (http://mootools.net) JS 
+framework. Use of this framework is not a necessity; it's up to you what 
+you'll use as a front-end. An example of MooTools front-end is provided in
+the documentation.
+
+The plugin provides two modes: single sortable list, and double lists, where 
+the second list represents "disabled" items, although that can well be used 
+for having two lists with items being sorted between each of them (e.g. 
+primary and secondary navigations).
+
+INSTALLATION
+
+To install this module, run the following commands:
+
+	perl Build.PL
+	./Build
+	./Build test
+	./Build install
+
+SUPPORT AND DOCUMENTATION
+
+After installing, you can find documentation for this module with the
+perldoc command.
+
+    perldoc App::ZofCMS::Plugin::PreferentialOrder
+
+You can also look for information at:
+
+    RT, CPAN's request tracker
+        http://rt.cpan.org/NoAuth/Bugs.html?Dist=App-ZofCMS-Plugin-PreferentialOrder
+
+    AnnoCPAN, Annotated CPAN documentation
+        http://annocpan.org/dist/App-ZofCMS-Plugin-PreferentialOrder
+
+    CPAN Ratings
+        http://cpanratings.perl.org/d/App-ZofCMS-Plugin-PreferentialOrder
+
+    Search CPAN
+        http://search.cpan.org/dist/App-ZofCMS-Plugin-PreferentialOrder/
+
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2010 'Zoffix
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
