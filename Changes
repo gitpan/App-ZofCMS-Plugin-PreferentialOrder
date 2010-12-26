@@ -1,5 +1,9 @@
 Revision history for App-ZofCMS-Plugin-PreferentialOrder
 
+0.0103  December 26, 2010
+        Fixed production of invalid empty HTML lists when enabled
+        or disabled lists do not have any elements
+
 0.0102  December 22, 2010
         Removed broken error check
 

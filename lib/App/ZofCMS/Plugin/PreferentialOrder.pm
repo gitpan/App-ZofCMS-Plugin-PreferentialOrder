@@ -6,7 +6,7 @@ use strict;
 use base 'App::ZofCMS::Plugin::Base';
 use DBI;
 use HTML::Template;
-our $VERSION = '0.0102';
+our $VERSION = '0.0103';
 
 sub _key { 'plug_preferential_order' }
 sub _defaults {
@@ -73,7 +73,12 @@ sub generate_order {
         \ list_html_template(),
         die_on_bad_params => 0,
     );
-    $template->param( items => $items, );
+    $template->param(
+        items => $items,
+        has_enabled_items => (
+            scalar(@{ $items || [] }) ? 1 : 0
+        ),
+    );
 
     my $items_disabled = $conf->{items_disabled};
     my $template_disabled = HTML::Template->new_scalar_ref(
@@ -83,6 +88,9 @@ sub generate_order {
     $template_disabled->param(
         items       => $items_disabled,
         is_disabled => 1,
+        has_disabled_items => (
+            scalar(@{ $items_disabled || [] }) ? 1 : 0
+        ),
     );
 
     return ( $template->output, $template_disabled->output );
@@ -300,19 +308,23 @@ sub dbh {
 sub list_html_template {
     return <<'END_HTML';
 <tmpl_if name='is_disabled'>
-    <ul class="plug_list_html_template_disabled">
-        <tmpl_loop name='items'>
-            <li id="ppof_order_list_disabled_item_<tmpl_var escape='html'
-                name='name'>"><tmpl_var name='value'></li>
-        </tmpl_loop>
-    </ul>
+    <tmpl_if name='has_disabled_items'>
+        <ul class="plug_list_html_template_disabled">
+            <tmpl_loop name='items'>
+                <li id="ppof_order_list_disabled_item_<tmpl_var escape='html'
+                    name='name'>"><tmpl_var name='value'></li>
+            </tmpl_loop>
+        </ul>
+    </tmpl_if>
 <tmpl_else>
-    <ul class="plug_list_html_template">
-        <tmpl_loop name='items'>
-            <li id="ppof_order_list_item_<tmpl_var escape='html'
-                name='name'>"><tmpl_var name='value'></li>
-        </tmpl_loop>
-    </ul>
+    <tmpl_if name='has_enabled_items'>
+        <ul class="plug_list_html_template">
+            <tmpl_loop name='items'>
+                <li id="ppof_order_list_item_<tmpl_var escape='html'
+                    name='name'>"><tmpl_var name='value'></li>
+            </tmpl_loop>
+        </ul>
+    </tmpl_if>
 </tmpl_if>
 END_HTML
 }

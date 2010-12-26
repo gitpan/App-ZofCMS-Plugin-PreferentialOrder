@@ -15,11 +15,11 @@ name: App-ZofCMS-Plugin-PreferentialOrder
 provides:
   App::ZofCMS::Plugin::PreferentialOrder:
     file: lib/App/ZofCMS/Plugin/PreferentialOrder.pm
-    version: 0.0102
+    version: 0.0103
 requires:
   App::ZofCMS::Plugin::Base: 0.0106
   DBI: 1.607
   HTML::Template: 2.9
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.0102
+version: 0.0103
