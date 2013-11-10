@@ -1,12 +1,12 @@
 App-ZofCMS-Plugin-PreferentialOrder
 
-The module is a plugin for App::ZofCMS that provides means to have a sortable 
-list of custom HTML snippets. The order can be defined by each individual 
-user to suit their needs. The order is defined using a form provided by the 
-plugin, the actual sorting is done by MooTools (http://mootools.net) JS 
-framework. Use of this framework is not a necessity; it's up to you what 
-you'll use as a front-end. An example of MooTools front-end is provided in
-the documentation.
+The module is a plugin for App::ZofCMS that provides means to have a
+sortable list of custom HTML snippets. The order can be defined by each
+individual user to suit their needs. The order is defined using a form
+provided by the plugin, the actual sorting is done by
+MooTools (http://mootools.net) JS framework. Use of this framework is
+not a necessity; it's up to you what you'll use as a front-end. An
+example of MooTools front-end is provided in the documentation.
 
 The plugin provides two modes: single sortable list, and double lists, where 
 the second list represents "disabled" items, although that can well be used 

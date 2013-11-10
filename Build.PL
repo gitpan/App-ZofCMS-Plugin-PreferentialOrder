@@ -17,7 +17,9 @@ my $builder = Module::Build->new(
         'App::ZofCMS::Plugin::Base' => 0.0106,
         'DBI'                       => 1.607,
         'HTML::Template'            => 2.9,
+        'perl' => '5.006',
     },
+    configure_requires => { 'Module::Build' => 0 },
     add_to_cleanup      => [ 'App-ZofCMS-Plugin-PreferentialOrder-*' ],
     create_makefile_pl => 'traditional',
 );

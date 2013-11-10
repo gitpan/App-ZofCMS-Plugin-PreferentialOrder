@@ -6,7 +6,7 @@ use strict;
 use base 'App::ZofCMS::Plugin::Base';
 use DBI;
 use HTML::Template;
-our $VERSION = '0.0103';
+our $VERSION = '0.0104';
 
 sub _key { 'plug_preferential_order' }
 sub _defaults {
@@ -370,6 +370,8 @@ END_HTML
 
 1;
 __END__
+
+=encoding utf8
 
 =head1 NAME
 
